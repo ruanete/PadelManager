@@ -18,5 +18,7 @@ Inicialmente la implementación de dicho microservicio será realizada en **Java
 
 ## Tecnologías a usar
 * [Java](https://www.java.com/es/): Lenguaje de programación.
-  * [Spring Boot](https://spring.io/): Framework basado en Java.
+  * [Spring Boot](https://spring.io/): Framework basado en Java que se centra en el desarrollo de aplicaciones simplificando los pasos de creación del proyecto y despliegue.
 * [MySQL](https://www.mysql.com/): Gestor de bases de datos.
+* [Travis-CI](https://travis-ci.org/): Servicio de integración continua.
+* [Heroku](https://www.heroku.com/): Servicio de computación en la Nube (PaaS).
