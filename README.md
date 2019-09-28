@@ -17,7 +17,7 @@ Esta idea surje debido a que un conocido que tiene pistas de padel se dedica a c
 * Posibilidad a los usuarios de crear partidos y de apuntarse a estos.
 
 ## ¿Cómo se llevará a cabo?
-Inicialmente la implementación de dicho microservicio será realizada en **Java**, concretamente usando el framework **Spring Boot**. He decidido hacer uso de este framework debido a que actualmente estoy trabajando con él realizando una **API REST** para manejar una base de datos. Además, como Java es uno de los lenguajes en los que más he trabajado me parece más acorde trabajar con un framework que haga uso de este.
+Inicialmente la implementación de dicho microservicio será realizada en **Java**, concretamente usando el framework **Spring Boot**. He decidido hacer uso de este framework debido a que actualmente estoy trabajando con él realizando una **API REST** para manejar una base de datos. Además, como Java es uno de los lenguajes en los que más he trabajado me parece más acorde trabajar con un framework que haga uso de este. Aunque esto puede formar parte de un servicio y no de un microservicio que es en lo que estamos centrandonos, solo será implementado parte de este proyecto.
 
 ## Tecnologías a usar
 * [Java](https://www.java.com/es/): Lenguaje de programación.
