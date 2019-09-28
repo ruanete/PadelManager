@@ -1,4 +1,6 @@
 # PadelManager
+[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![Build Status](https://travis-ci.org/ruanete/PadelManager.svg?branch=master)](https://travis-ci.org/ruanete/PadelManager)
 
 ## ¿Qué es PadelManager?
 PadelManager es un microservicio centrado en la gestión de pistas de padel y la generación de partidos en los cuales los usuarios tendrán la posibilidad de apuntarse, siempre y cuando la pista este disponible y no existan en dicho partido cuatro jugadores.
