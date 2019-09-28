@@ -20,5 +20,6 @@ Inicialmente la implementación de dicho microservicio será realizada en **Java
 * [Java](https://www.java.com/es/): Lenguaje de programación.
   * [Spring Boot](https://spring.io/): Framework basado en Java que se centra en el desarrollo de aplicaciones simplificando los pasos de creación del proyecto y despliegue.
 * [MySQL](https://www.mysql.com/): Gestor de bases de datos.
+* [Spring Boot Actuator](https://www.baeldung.com/spring-boot-actuators): Dependencia para Spring Boot que monitoriza, recopila metricas, comprende el trafico o el estado de la base de datos.
 * [Travis-CI](https://travis-ci.org/): Servicio de integración continua.
 * [Heroku](https://www.heroku.com/): Servicio de computación en la Nube (PaaS).
