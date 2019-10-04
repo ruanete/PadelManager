@@ -1,2 +1,5 @@
 language: java
 jdk: oraclejdk11
+script:
+  - cd padelmanager
+  - mvn clean install
