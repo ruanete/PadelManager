@@ -15,11 +15,11 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
-/*Change root password*/
+/*Change root password to use the same BD as in local*/
 use mysql;
 ALTER USER 'root'@'localhost' IDENTIFIED BY 'Ruanete1997.';
 
-/*Create DB*/
+/*Create database*/
 CREATE DATABASE IF NOT EXISTS `PadelManager` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 USE `PadelManager`;
 
