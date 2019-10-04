@@ -1,5 +1,9 @@
 language: java
 jdk: oraclejdk11
+services:
+  - mysql
+before_install:
+  - mysql -u root --password="" < test/PadelManagerDatabase.sql
 script:
   - cd padelmanager
   - mvn clean install
