@@ -19,6 +19,13 @@
 -- Table structure for table `Matches`
 --
 
+/*Create Testuser*/
+CREATE USER 'dev'@'localhost' IDENTIFIED BY 'dev';
+GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,DROP ON *.* TO 'dev'@'localhost';
+/*Create DB*/
+CREATE DATABASE IF NOT EXISTS `PadelManager` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `PadelManager`;
+
 DROP TABLE IF EXISTS `Matches`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
