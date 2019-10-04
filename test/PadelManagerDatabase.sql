@@ -15,13 +15,7 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
---
--- Table structure for table `Matches`
---
-
-/*Create Testuser
-CREATE USER 'dev'@'localhost' IDENTIFIED BY 'dev';
-GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,DROP ON *.* TO 'dev'@'localhost';*/
+/*Change root password*/
 use mysql;
 ALTER USER 'root'@'localhost' IDENTIFIED BY 'Ruanete1997.';
 
@@ -29,10 +23,14 @@ ALTER USER 'root'@'localhost' IDENTIFIED BY 'Ruanete1997.';
 CREATE DATABASE IF NOT EXISTS `PadelManager` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 USE `PadelManager`;
 
-DROP TABLE IF EXISTS `Matches`;
+--
+-- Table structure for table `Match`
+--
+
+DROP TABLE IF EXISTS `Match`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Matches` (
+CREATE TABLE `Match` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `setResultsP12` int(11) DEFAULT NULL,
   `setResultsP34` int(11) DEFAULT NULL,
@@ -41,46 +39,46 @@ CREATE TABLE `Matches` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `Matches`
+-- Dumping data for table `Match`
 --
 
-LOCK TABLES `Matches` WRITE;
-/*!40000 ALTER TABLE `Matches` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Matches` ENABLE KEYS */;
+LOCK TABLES `Match` WRITE;
+/*!40000 ALTER TABLE `Match` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Match` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `Matches_Players`
+-- Table structure for table `Match_Player`
 --
 
-DROP TABLE IF EXISTS `Matches_Players`;
+DROP TABLE IF EXISTS `Match_Player`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Matches_Players` (
+CREATE TABLE `Match_Player` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`),
-  CONSTRAINT `fk_Match` FOREIGN KEY (`id`) REFERENCES `Matches` (`id`),
-  CONSTRAINT `fk_Player` FOREIGN KEY (`id`) REFERENCES `Players` (`id`)
+  CONSTRAINT `fk_Match` FOREIGN KEY (`id`) REFERENCES `Match` (`id`),
+  CONSTRAINT `fk_Player` FOREIGN KEY (`id`) REFERENCES `Player` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `Matches_Players`
+-- Dumping data for table `Match_Player`
 --
 
-LOCK TABLES `Matches_Players` WRITE;
-/*!40000 ALTER TABLE `Matches_Players` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Matches_Players` ENABLE KEYS */;
+LOCK TABLES `Match_Player` WRITE;
+/*!40000 ALTER TABLE `Match_Player` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Match_Player` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `Players`
+-- Table structure for table `Player`
 --
 
-DROP TABLE IF EXISTS `Players`;
+DROP TABLE IF EXISTS `Player`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Players` (
+CREATE TABLE `Player` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8_spanish_ci NOT NULL,
   `email` varchar(255) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
@@ -90,49 +88,49 @@ CREATE TABLE `Players` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `Players`
+-- Dumping data for table `Player`
 --
 
-LOCK TABLES `Players` WRITE;
-/*!40000 ALTER TABLE `Players` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Players` ENABLE KEYS */;
+LOCK TABLES `Player` WRITE;
+/*!40000 ALTER TABLE `Player` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Player` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `Reservations`
+-- Table structure for table `Reservation`
 --
 
-DROP TABLE IF EXISTS `Reservations`;
+DROP TABLE IF EXISTS `Reservation`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Reservations` (
+CREATE TABLE `Reservation` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `checkInDate` datetime NOT NULL,
   `checkOutDate` datetime NOT NULL,
   `price` decimal(10,0) NOT NULL,
   PRIMARY KEY (`id`),
-  CONSTRAINT `fk_MatchPlayer` FOREIGN KEY (`id`) REFERENCES `Matches_Players` (`id`),
-  CONSTRAINT `fk_Track` FOREIGN KEY (`id`) REFERENCES `Tracks` (`id`)
+  CONSTRAINT `fk_MatchPlayer` FOREIGN KEY (`id`) REFERENCES `Match_Player` (`id`),
+  CONSTRAINT `fk_Track` FOREIGN KEY (`id`) REFERENCES `Track` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `Reservations`
+-- Dumping data for table `Reservation`
 --
 
-LOCK TABLES `Reservations` WRITE;
-/*!40000 ALTER TABLE `Reservations` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Reservations` ENABLE KEYS */;
+LOCK TABLES `Reservation` WRITE;
+/*!40000 ALTER TABLE `Reservation` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Reservation` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `Tracks`
+-- Table structure for table `Track`
 --
 
-DROP TABLE IF EXISTS `Tracks`;
+DROP TABLE IF EXISTS `Track`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Tracks` (
+CREATE TABLE `Track` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `trackNumber` int(11) NOT NULL,
   `working` tinyint(4) NOT NULL,
@@ -141,12 +139,12 @@ CREATE TABLE `Tracks` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `Tracks`
+-- Dumping data for table `Track`
 --
 
-LOCK TABLES `Tracks` WRITE;
-/*!40000 ALTER TABLE `Tracks` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Tracks` ENABLE KEYS */;
+LOCK TABLES `Track` WRITE;
+/*!40000 ALTER TABLE `Track` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Track` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -158,4 +156,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-10-04 23:07:13
+-- Dump completed on 2019-10-05  0:10:14
