@@ -10,17 +10,17 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Track")
+@Table(name="track")
 public class Track {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	
-	@Column(name="trackNumber")
+	@Column(name="trackNumber", nullable = false, unique = true)
 	private int trackNumber;
 	
-	@Column(name="working")
+	@Column(name="working", nullable = false)
 	private Boolean working;
 	
 	public Track() {}
