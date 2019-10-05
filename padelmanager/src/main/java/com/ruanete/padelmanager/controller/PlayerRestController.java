@@ -1,8 +1,12 @@
 package com.ruanete.padelmanager.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -25,5 +29,18 @@ public class PlayerRestController {
 	@RequestMapping(value = "/player", method = RequestMethod.POST)
 	public void newPlayer(@RequestBody Player newPlayer){
 		playerRepository.save(newPlayer);
+	}
+	
+	@RequestMapping(value = "/player/{id}", method = RequestMethod.PUT)
+	public ResponseEntity<Player> updatePlayer(@RequestBody Player newPlayer, @PathVariable int id){
+		Optional<Player> searchPlayer = playerRepository.findById(id);
+		
+		if(searchPlayer.isPresent()) {
+			newPlayer.setId(id);
+			playerRepository.save(newPlayer);
+			return new ResponseEntity<Player>(HttpStatus.OK);
+		}else {
+			return new ResponseEntity<Player>(HttpStatus.NOT_FOUND);
+		}
 	}
 }
