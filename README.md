@@ -26,3 +26,7 @@ Inicialmente la implementación de dicho microservicio será realizada en **Java
 * [Spring Boot Actuator](https://www.baeldung.com/spring-boot-actuators): Dependencia para Spring Boot que monitoriza, recopila metricas, comprende el trafico o el estado de la base de datos.
 * [Travis-CI](https://travis-ci.org/): Servicio de integración continua.
 * [Heroku](https://www.heroku.com/): Servicio de computación en la Nube (PaaS).
+
+## [Documentación](https://github.com/ruanete/PadelManager/blob/master/doc/README.md)
+* Integración continua
+  * [Configuración Travis CI](https://github.com/ruanete/PadelManager/tree/master/doc/travis.md)
