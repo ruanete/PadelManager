@@ -3,6 +3,7 @@ package com.ruanete.padelmanager.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,12 +18,12 @@ public class PlayerRestController {
 	PlayerRepository playerRepository;
 	
 	@RequestMapping(value = "/player", method = RequestMethod.GET)
-	public List<Player> devuelvePlayers(){
+	public List<Player> allPlayers(){
 		return playerRepository.findAll();
 	}
 	
-	@RequestMapping(value = "/newPlayer", method = RequestMethod.GET)
-	public void crearPlayer(){
-		playerRepository.save(new Player(1,"Raúl Ruano Narváez", "raulruanonarvaez@gmail.com"));
+	@RequestMapping(value = "/player", method = RequestMethod.POST)
+	public void newPlayer(@RequestBody Player newPlayer){
+		playerRepository.save(newPlayer);
 	}
 }

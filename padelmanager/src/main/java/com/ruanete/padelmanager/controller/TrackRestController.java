@@ -3,6 +3,7 @@ package com.ruanete.padelmanager.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,12 +19,12 @@ public class TrackRestController {
 	TrackRepository trackRepository;
 	
 	@RequestMapping(value = "/track", method = RequestMethod.GET)
-	public List<Track> devuelveTracks(){
+	public List<Track> allTracks(){
 		return trackRepository.findAll();
 	}
 	
-	@RequestMapping(value = "/newTrack", method = RequestMethod.GET)
-	public void crearTrack(){
-		trackRepository.save(new Track(1,1,false));
+	@RequestMapping(value = "/track", method = RequestMethod.POST)
+	public void newTrack(@RequestBody Track newTrack){
+		trackRepository.save(newTrack);
 	}
 }

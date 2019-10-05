@@ -1,15 +1,14 @@
 package com.ruanete.padelmanager.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ruanete.padelmanager.domain.Match;
-import com.ruanete.padelmanager.domain.Player;
 import com.ruanete.padelmanager.repository.MatchRepository;
 
 @RestController
@@ -20,14 +19,12 @@ public class MatchRestController {
 	MatchRepository matchRepository;
 	
 	@RequestMapping(value = "/match", method = RequestMethod.GET)
-	public List<Match> devuelveMatch(){
+	public List<Match> allMatches(){
 		return matchRepository.findAll();
 	}
 	
-	@RequestMapping(value = "/newMatch", method = RequestMethod.GET)
-	public void crearMatch(){
-		List<Player> players = new ArrayList<>();
-		players.add(new Player(1,"Raúl Ruano Narváez", "raulruanonarvaez@gmail.com"));
-		matchRepository.save(new Match(1,0,0,players));
+	@RequestMapping(value = "/match", method = RequestMethod.POST)
+	public void newMatch(@RequestBody Match newMatch){
+		matchRepository.save(newMatch);
 	}
 }
