@@ -28,5 +28,6 @@ Inicialmente la implementación de dicho microservicio será realizada en **Java
 * [Heroku](https://www.heroku.com/): Servicio de computación en la Nube (PaaS).
 
 ## [Documentación](https://github.com/ruanete/PadelManager/blob/master/doc/README.md)
+* [Instalación y ejecución](https://github.com/ruanete/PadelManager/tree/master/doc/instalacion_ejecucion.md)
 * Integración continua
   * [Configuración Travis CI](https://github.com/ruanete/PadelManager/tree/master/doc/travis.md)
