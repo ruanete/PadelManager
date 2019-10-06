@@ -21,9 +21,9 @@ jobs:
         java-version: 1.8
     - name: Verify MySQL connection from host and create databases
       run: |
-        mysql -h 127.0.0.1 --port 8888 -u root -proot -e "SHOW DATABASES;"
-        mysql -h 127.0.0.1 --port 8888 -u root -proot < test/PadelManagerDatabaseGitHubActions.sql
-        mysql -h 127.0.0.1 --port 8888 -u root -proot -e "SHOW DATABASES;"
+        mysql -h 127.0.0.1 --port 3306 -u root -proot -e "SHOW DATABASES;"
+        mysql -h 127.0.0.1 --port 3306 -u root -proot < test/PadelManagerDatabaseGitHubActions.sql
+        mysql -h 127.0.0.1 --port 3306 -u root -proot -e "SHOW DATABASES;"
     - name: Build with Maven
       run: |
         cd padelmanager
