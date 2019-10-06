@@ -9,9 +9,10 @@ jobs:
       mysql:
         image: mysql:5.7
         env:
-          MYSQL_ROOT_PASSWORD: ""
+          MYSQL_ROOT_PASSWORD: password
         ports:
-        - 3306
+          - 3306
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
     steps:
     - uses: actions/checkout@v1
     - name: Set up JDK 1.8
@@ -21,8 +22,7 @@ jobs:
     - name: Verify MySQL connection from host and create databases
       run: |
         sudo apt-get install -y mysql-client
-        mysql -u root --password="" < test/PadelManagerDatabase.sql
-        mysql --host 127.0.0.1 --port ${{ job.services.mysql.ports['3306'] }} -uroot -ppassword -e "SHOW DATABASES"
+        mysql -u root --password=password < test/PadelManagerDatabase.sql
     - name: Build with Maven
       run:
         cd padelmanager
