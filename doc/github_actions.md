@@ -2,7 +2,7 @@
 Para realizar la integración continua, además de realizarlo por médio de **Travis CI**, he utilizado [GitHub Actions](https://github.com/features/actions) un servicio que es propio de **GitHub** lo que facilita mucho la integración con el repositorio, además, tiene una forma similar de configurar el fichero de configuración similar a **Travis CI** y como anteriormente había configurado dicho servicio este ha sido replicarlo. El archivo de configuración que he usado es el siguiente:
 
 ```
-name: Java CI
+name: PadelManager
 
 on: [push]
 
