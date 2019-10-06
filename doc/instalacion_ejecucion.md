@@ -11,6 +11,12 @@ Con este comando se compilará el proyecto y se ejecutarán los test. Una vez co
 java -jar padelmanager-0.0.1-SNAPSHOT.jar
 ```
 
+Si queremos solo ejecutar los test del proyecto nos situamos en la misma carpeta que anteriormente **"padelmanager"** y realizamos:
+
+```
+mvn test
+```
+
 Una vez ejecutado podemos ver la documentación de la REST API ingresando en la dirección siguiente:
 
 ```
