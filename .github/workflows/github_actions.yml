@@ -23,8 +23,8 @@ jobs:
     - name: Verify MySQL connection from host and create databases
       run: |
         sudo apt-get install -y mysql-client
-        mysql -h 127.0.0.1 --port 8888 -u root -ppassword -e 'CREATE DATABASE IF NOT EXISTS PadelManagerTest;'
+        mysql -h 127.0.0.1 --port 8888 -u root -ppassword < test/PadelManagerDatabase.sql
     - name: Build with Maven
-      run:
+      run: |
         cd padelmanager
         mvn clean install
