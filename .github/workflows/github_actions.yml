@@ -23,7 +23,7 @@ jobs:
       run: |
         sudo apt-get install -y mysql-client
         mysql --host 127.0.0.1 --port ${{ job.services.mysql.ports['3306'] }} -uroot -ppassword -e "SHOW DATABASES"
-        mysql -u root -ppassword < test/PadelManagerDatabase.sql
+        mysql --host 127.0.0.1 --port ${{ job.services.mysql.ports['3306'] }} -uroot -ppassword < test/PadelManagerDatabase.sql
     - name: Build with Maven
       run:
         cd padelmanager
