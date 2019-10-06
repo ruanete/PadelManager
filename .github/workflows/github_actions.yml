@@ -22,7 +22,6 @@ jobs:
         java-version: 1.8
     - name: Verify MySQL connection from host and create databases
       run: |
-        sudo apt-get install -y mysql-client
         mysql -h 127.0.0.1 --port 8888 -u root -proot -e "SHOW DATABASES;"
         mysql -h 127.0.0.1 --port 8888 -u root -proot. < test/PadelManagerDatabase.sql
         mysql -h 127.0.0.1 --port 8888 -u root -proot. -e "SHOW DATABASES;"
