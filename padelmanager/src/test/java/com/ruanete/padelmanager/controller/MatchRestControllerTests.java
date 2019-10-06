@@ -10,6 +10,7 @@ import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import com.ruanete.padelmanager.domain.Match;
 import com.ruanete.padelmanager.repository.MatchRepository;
 
 @RunWith(SpringRunner.class)
@@ -24,5 +25,15 @@ public class MatchRestControllerTests {
 	@Test
 	public void getAllMatches() {
 		assertEquals(3, matchRepository.findAll().size());
+	}
+	
+	@Test
+	public void newMatch() {
+		Match match = new Match();
+		match.setSetsP12(1);
+		match.setSetsP34(2);
+		
+		matchRepository.save(match);
+		assertEquals(4, matchRepository.findAll().size());
 	}
 }
