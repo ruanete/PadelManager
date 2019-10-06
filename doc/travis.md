@@ -1,5 +1,5 @@
 # Configuración Travis CI
-Para realizar la integración continua por médio de Travis CI he tenido que crear una cuenta enlazada a [GitHub](https://github.com)  en la web de [Travis CI](https://travis-ci.com/) y tan solo se debía activar el repositorio en el que quería que actuara. En este repositorio, en el que se trabaja en el proyecto, he generado un fichero **.travis.yml** que será ejecutado por Travis CI cuando se realiza un "push" en el mismo. El archivo de configuración que por el momento voy a utilizar es el siguiente:
+Para realizar la integración continua por médio de Travis CI he tenido que crear una cuenta enlazada a [GitHub](https://github.com)  en la web de [Travis CI](https://travis-ci.com/) y tan solo se debía activar el repositorio en el que quería que actuara. En este repositorio, en el que se trabaja en el proyecto, he generado un fichero **.travis.yml** que será ejecutado por Travis CI cuando se realiza un "push" en el mismo. Destacar que el directorio **"test"** no se refieren a los test que pasará el proyecto, si no a un directorio en el que se ha introducido el archivo que genera las bases de datos para realizar los test pasados por Travis CI. El archivo de configuración que por el momento voy a utilizar es el siguiente:
 
 ```
 language: java
@@ -31,10 +31,10 @@ ALTER USER 'root'@'localhost' IDENTIFIED BY 'Ruanete1997.';
 
 /*Create database*/
 CREATE DATABASE IF NOT EXISTS `PadelManager` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `PadelManager`;
+CREATE DATABASE IF NOT EXISTS `PadelManagerTest` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 ```
 
-Y como se puede observar lo que se realiza es un cambio de contraseña, la creación de la base de datos y el uso de la misma. Luego al compilar y pasar los test del proyecto, este automáticamente generará las diferentes tablas.
+Y como se puede observar lo que se realiza es un cambio de contraseña, la creación de las base de datos final y la que se usarán para los test. Luego al compilar, automáticamente generará las diferentes tablas y se ejecutarán los test.
 
 #### Bibliografía
 [TravisCI: Setup MySQL Tables+Data before running Tests](https://andidittrich.de/2017/06/travisci-setup-mysql-tablesdata-before-running-tests.html)
