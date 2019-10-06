@@ -36,5 +36,7 @@ CREATE DATABASE IF NOT EXISTS `PadelManagerTest` DEFAULT CHARACTER SET utf8 COLL
 
 Y como se puede observar lo que se realiza es un cambio de contraseña, la creación de las base de datos final y la que se usarán para los test. Luego al compilar, automáticamente generará las diferentes tablas y se ejecutarán los test.
 
+Destacar que los test actualmente se encuentran en **padelmanager/src/test/java/com/ruanete/padelmanager/controller** y en este paquete de Java estan los test que van a ser ejecutados, concretamente se van a ejecutar test para comprobar si la petición GET devuelve el contenido total de la base de datos, la cual, inicialmente tiene unos valores insertados antes de realizar el test, valores de prueba. Estos valores de prueba son insertados mediante un fichero que se encuentra en **padelmanager/src/main/resources/test-mysql.sql**
+
 #### Bibliografía
 [TravisCI: Setup MySQL Tables+Data before running Tests](https://andidittrich.de/2017/06/travisci-setup-mysql-tablesdata-before-running-tests.html)
