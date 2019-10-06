@@ -7,11 +7,12 @@ jobs:
     runs-on: ubuntu-latest
     services:
       mysql:
-        image: mysql:5.7
+        image: mysql:8.0
         env:
           MYSQL_ROOT_PASSWORD: password
+          MYSQL_DATABASE: PadelManagerTest
         ports:
-          - 3306
+            - '8888:3306'
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
     steps:
     - uses: actions/checkout@v1
@@ -22,7 +23,7 @@ jobs:
     - name: Verify MySQL connection from host and create databases
       run: |
         sudo apt-get install -y mysql-client
-        mysql -Uroot -ppassword < test/PadelManagerDatabase.sql
+        mysql -h 127.0.0.1 --port 8888 -u root -ppassword -e 'CREATE DATABASE IF NOT EXISTS PadelManagerTest;'
     - name: Build with Maven
       run:
         cd padelmanager
