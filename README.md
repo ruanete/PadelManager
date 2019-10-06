@@ -27,9 +27,11 @@ Inicialmente la implementación de dicho microservicio será realizada en **Java
 * [Swagger](https://swagger.io/): Herramienta que ayuda a desarrollar, construir, documentar y consumir la REST API. Es de mucha utilidad mantener una buena documentación de la API, por ello he usado esta herramienta que va ayudar a mantener la API REST documentada sin que tenga mucho coste de trabajo.
 * [Spring Boot Actuator](https://www.baeldung.com/spring-boot-actuators): Dependencia para Spring Boot que monitoriza, recopila metricas, comprende el trafico o el estado de la base de datos.
 * [Travis-CI](https://travis-ci.org/): Servicio de integración continua. Usado debido a la integración directa que tiene con GitHub y que es usado directamente desde la nube, además es fácil de configurar y compatible con la mayoría de lenguajes.
+* [GitHub Actions](https://github.com/features/actions): Servicio de integración continua. Al ser un servicio propio de GitHub está totalmente integrado con este y las facilidades que con esto conlleva, muy parecido de configurar a Travis CI.
 * [Heroku](https://www.heroku.com/): Servicio de computación en la Nube (PaaS).
 
 ## [Documentación](https://github.com/ruanete/PadelManager/blob/master/doc/README.md)
 * [Instalación, ejecución y uso en local](https://github.com/ruanete/PadelManager/tree/master/doc/instalacion_ejecucion.md)
 * Integración continua
   * [Configuración Travis CI](https://github.com/ruanete/PadelManager/tree/master/doc/travis.md)
+  * [Configuración de GitHub Actions](https://github.com/ruanete/PadelManager/tree/master/doc/github_actions.md)
