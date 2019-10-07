@@ -27,7 +27,7 @@ lo que he conseguido es poder modificar el usuario "root" para usar el mismo que
 ```
 /*Change root password to use the same BD as in local*/
 use mysql;
-ALTER USER 'root'@'localhost' IDENTIFIED BY 'Ruanete1997.';
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'root';
 
 /*Create database*/
 CREATE DATABASE IF NOT EXISTS `PadelManager` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
