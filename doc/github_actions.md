@@ -35,3 +35,7 @@ jobs:
 ```
 
 En este fichero de configuración al igual que con **Travis CI** se ha configurado el servicio de **MySQL**, **Java** y la ejecución del propio proyecto. Lo que voy a destacar a diferencia de **Travis CI** es que al principio del fichero aparece la sentencia **"on: [push]"**, sentencia que le dice a GitHub Actions que realice todo el proceso siempre y cuando se realice un **push** en el respositorio, esto es configurable a cualquier tipo de evento. Otra curiosidad de este fichero de configuración es el uso de **- name:** sentencia que realiza el procedimiento siguiente **run** en un paso de ejecución, esto simplemente puede servir para que el usuario final sepa en que paso del procedimiento ha podido falla o cuales son aquellos que se han ejecutado sin problema.
+
+#### Bibliografía
+1. [Github actions: Using mysql service throws access denied for user 'root'@'localhost'](https://stackoverflow.com/questions/58222386/github-actions-using-mysql-service-throws-access-denied-for-user-rootlocalh)
+2. [GitHub Actions CI/CD with Yarn, Composer, phpcs, phpunit and built branches](https://bigbite.net/insights/github-actions-ci-cd-with-yarn-composer-phpcs-phpunit-and-built-branches/)
