@@ -11,6 +11,20 @@ Con este comando se compilará el proyecto y se ejecutarán los test. Una vez co
 java -jar padelmanager-0.0.1-SNAPSHOT.jar
 ```
 
+La mejor forma para ejecutar el proyecto en producción es hacer uso del siguiente comando, el cual, nos permitirá una vez ejecutado poder parar su ejecución con el comando análogo **stop** luego, para realizar la ejecución, realizamos:
+
+```
+mvn spring-boot:start &
+```
+
+Y para finalizar la ejecución del microservicio una vez arrancado realizamos:
+
+```
+mvn spring-boot:stop
+```
+
+Destacar que estos comando siempre se deben realizar, como bien dije con anterioridad, en la carpeta **padelmanager** del proyecto.
+
 Si queremos solo ejecutar los test del proyecto nos situamos en la misma carpeta que anteriormente **"padelmanager"** y realizamos:
 
 ```
