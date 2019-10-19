@@ -44,4 +44,16 @@ public class TrackRestController {
 			return new ResponseEntity<Track>(HttpStatus.NOT_FOUND);
 		}
 	}
+	
+	@RequestMapping(value = "/track/{id}", method = RequestMethod.DELETE)
+	public ResponseEntity<Void> deleteTrack(@PathVariable int id){
+		Optional<Track> searchTrack = trackRepository.findById(id);
+		
+		if(searchTrack.isPresent()) {
+			trackRepository.delete(searchTrack.get());
+			return new ResponseEntity<Void>(HttpStatus.OK);
+		}else {
+			return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
+		}
+	}
 }

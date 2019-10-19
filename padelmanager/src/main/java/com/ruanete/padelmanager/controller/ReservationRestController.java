@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ruanete.padelmanager.domain.Player;
 import com.ruanete.padelmanager.domain.Reservation;
 import com.ruanete.padelmanager.repository.ReservationRepository;
 
@@ -41,6 +42,18 @@ public class ReservationRestController {
 			return new ResponseEntity<Reservation>(HttpStatus.OK);
 		}else {
 			return new ResponseEntity<Reservation>(HttpStatus.NOT_FOUND);
+		}
+	}
+	
+	@RequestMapping(value = "/reservation/{id}", method = RequestMethod.DELETE)
+	public ResponseEntity<Void> deleteReservation(@PathVariable int id){
+		Optional<Reservation> searchReservation = reservationRepository.findById(id);
+		
+		if(searchReservation.isPresent()) {
+			reservationRepository.delete(searchReservation.get());
+			return new ResponseEntity<Void>(HttpStatus.OK);
+		}else {
+			return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
 		}
 	}
 }

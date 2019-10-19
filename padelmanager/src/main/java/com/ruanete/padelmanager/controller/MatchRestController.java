@@ -44,4 +44,16 @@ public class MatchRestController {
 			return new ResponseEntity<Match>(HttpStatus.NOT_FOUND);
 		}
 	}
+	
+	@RequestMapping(value = "/match/{id}", method = RequestMethod.DELETE)
+	public ResponseEntity<Void> deleteMatch(@PathVariable int id){
+		Optional<Match> searchMatch = matchRepository.findById(id);
+		
+		if(searchMatch.isPresent()) {
+			matchRepository.delete(searchMatch.get());
+			return new ResponseEntity<Void>(HttpStatus.OK);
+		}else {
+			return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
+		}
+	}
 }

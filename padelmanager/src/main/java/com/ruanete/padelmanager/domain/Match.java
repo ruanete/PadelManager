@@ -12,6 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -36,8 +37,12 @@ public class Match {
 			name = "rel_match_player",
 	        joinColumns = @JoinColumn(name = "match_id", nullable = false),
 	        inverseJoinColumns = @JoinColumn(name="player_id", nullable = false))
-	@ManyToMany(cascade = CascadeType.ALL)
+	@ManyToMany
 	private List<Player> players = new ArrayList<>();
+	
+	@OneToOne(mappedBy = "match", cascade = CascadeType.ALL)
+	@JsonIgnore
+	private Reservation reservation;
 
 	public Match() {}
 	
@@ -78,6 +83,14 @@ public class Match {
 
 	public void setSetsP34(int setsP34) {
 		this.setsP34 = setsP34;
+	}
+
+	public Reservation getReservation() {
+		return reservation;
+	}
+
+	public void setReservation(Reservation reservation) {
+		this.reservation = reservation;
 	}
 
 	@Override

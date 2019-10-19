@@ -43,4 +43,16 @@ public class PlayerRestController {
 			return new ResponseEntity<Player>(HttpStatus.NOT_FOUND);
 		}
 	}
+	
+	@RequestMapping(value = "/player/{id}", method = RequestMethod.DELETE)
+	public ResponseEntity<Void> deletePlayer(@PathVariable int id){
+		Optional<Player> searchPlayer = playerRepository.findById(id);
+		
+		if(searchPlayer.isPresent()) {
+			playerRepository.delete(searchPlayer.get());
+			return new ResponseEntity<Void>(HttpStatus.OK);
+		}else {
+			return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
+		}
+	}
 }
