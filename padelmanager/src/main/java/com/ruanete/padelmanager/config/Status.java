@@ -1,12 +1,12 @@
 package com.ruanete.padelmanager.config;
 
-import java.util.Map;
+import java.util.List;
 
 public class Status {
 	String status;
-	Map<String, Map<String, Object>> endpoints;
+	List<Object> endpoints;
 	
-	public Status(String status, Map<String, Map<String, Object>> endpoints) {
+	public Status(String status, List<Object> endpoints) {
 		super();
 		this.status = status;
 		this.endpoints = endpoints;
@@ -20,11 +20,11 @@ public class Status {
 		this.status = status;
 	}
 	
-	public Map<String, Map<String, Object>> getEndPoints() {
+	public List<Object> getEndPoints() {
 		return endpoints;
 	}
 	
-	public void setEndPoints(Map<String, Map<String, Object>> endpoints) {
+	public void setEndPoints(List<Object> endpoints) {
 		this.endpoints = endpoints;
 	}
 }

@@ -1,6 +1,8 @@
 package com.ruanete.padelmanager.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.http.HttpEntity;
@@ -19,21 +21,25 @@ public class PadelManagerRestController {
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public Status healthMicroservice() {
-		Map<String, Map<String, Object>> map = new HashMap<String, Map<String, Object>>();
+		List<Object> map = new ArrayList<Object>();
 		Map <String, Object> valueTrack = new HashMap<String, Object>();
         Map <String, Object> valuePlayer = new HashMap<String, Object>();
         Map <String, Object> valueMatch = new HashMap<String, Object>();
         Map <String, Object> valueReservation = new HashMap<String, Object>();
         
+        valueTrack.put("ruta", "GET /api/track");
 		valueTrack.put("valor",requestGet("track"));
+		valuePlayer.put("ruta", "GET /api/player");
         valuePlayer.put("valor", requestGet("player"));
+        valueMatch.put("ruta", "GET /api/match");
         valueMatch.put("valor", requestGet("match"));
+        valueReservation.put("ruta", "GET /api/reservation");
         valueReservation.put("valor", requestGet("reservation"));
         
-		map.put("GET /api/track", valueTrack);
-        map.put("GET /api/player", valuePlayer);
-        map.put("GET /api/match", valueMatch);
-        map.put("GET /api/reservation", valueReservation);
+		map.add(valueTrack);
+        map.add(valuePlayer);
+        map.add(valueMatch);
+        map.add(valueReservation);
 		
         return new Status("OK", map);
         
