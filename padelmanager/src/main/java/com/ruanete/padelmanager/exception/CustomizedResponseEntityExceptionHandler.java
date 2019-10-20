@@ -1,5 +1,7 @@
 package com.ruanete.padelmanager.exception;
 
+import javax.persistence.EntityNotFoundException;
+
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,6 +26,12 @@ public class CustomizedResponseEntityExceptionHandler extends ResponseEntityExce
 		ExceptionResponse exceptionResponse = new ExceptionResponse(false, "Error in values passed to endpoint, possibly due to data type error or values are not correct.");
         return new ResponseEntity<Object>(exceptionResponse, HttpStatus.BAD_REQUEST);
     }
+	
+	@ExceptionHandler(EntityNotFoundException.class)
+	public final ResponseEntity<ExceptionResponse> handleBadRequestException(EntityNotFoundException ex, WebRequest request) {
+		ExceptionResponse exceptionResponse = new ExceptionResponse(false, "Error not found values in database.");
+	    return new ResponseEntity<ExceptionResponse>(exceptionResponse, HttpStatus.INTERNAL_SERVER_ERROR);
+	}
 	
 	@ExceptionHandler(TrackNotFoundException.class)
 	public final ResponseEntity<ExceptionResponse> handleNotFoundException(TrackNotFoundException ex, WebRequest request) {

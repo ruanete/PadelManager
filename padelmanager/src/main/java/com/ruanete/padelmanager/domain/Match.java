@@ -7,6 +7,7 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -37,7 +38,7 @@ public class Match {
 			name = "rel_match_player",
 	        joinColumns = @JoinColumn(name = "match_id", nullable = false),
 	        inverseJoinColumns = @JoinColumn(name="player_id", nullable = false))
-	@ManyToMany
+	@ManyToMany(fetch = FetchType.EAGER)
 	private List<Player> players = new ArrayList<>();
 	
 	@OneToOne(mappedBy = "match", cascade = CascadeType.ALL)

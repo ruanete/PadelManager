@@ -9,6 +9,10 @@ public class ResponseListPadelManager {
 	private String message;
 	List<?> list;
 	
+	public ResponseListPadelManager() {
+		super();
+	}
+
 	public ResponseListPadelManager(boolean success, String message, List<?> list) {
 		super();
 		this.success = success;
