@@ -33,7 +33,7 @@ public class ReservationRestController {
 		resultsReservations = reservationRepository.findAll();
 		
 		if(resultsReservations.isEmpty()) {
-			responseListPadelManager = new ResponseListPadelManager(true, "Not exits reservations in database, you can test add one reservation.", resultsReservations);
+			responseListPadelManager = new ResponseListPadelManager(false, "Not exits reservations in database, you can test add one reservation.", resultsReservations);
 		}else {
 			responseListPadelManager = new ResponseListPadelManager(true, "List of reservations got.", resultsReservations);
 		}
@@ -52,6 +52,7 @@ public class ReservationRestController {
 			resultsReservations.add(reservationSaved);
 			responseListPadelManager = new ResponseListPadelManager(true, "New reservation added.", resultsReservations);
 		}catch(DataIntegrityViolationException e) {
+			System.out.println("DEEEEEEEEEEEEEEEEEEP");
 			throw new TrackErrorException("Server error probably new values are not correct or missing values.");
 		}
 		

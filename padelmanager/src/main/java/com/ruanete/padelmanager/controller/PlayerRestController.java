@@ -34,7 +34,7 @@ public class PlayerRestController {
 		resultsPlayers = playerRepository.findAll();
 		
 		if(resultsPlayers.isEmpty()) {
-			responseListPadelManager = new ResponseListPadelManager(true, "Not exits players in database, you can test add one player.", resultsPlayers);
+			responseListPadelManager = new ResponseListPadelManager(false, "Not exits players in database, you can test add one player.", resultsPlayers);
 		}else {
 			responseListPadelManager = new ResponseListPadelManager(true, "List of players got.", resultsPlayers);
 		}

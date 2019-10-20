@@ -34,7 +34,7 @@ public class MatchRestController {
 		resultsMatchs = matchRepository.findAll();
 		
 		if(resultsMatchs.isEmpty()) {
-			responseListPadelManager = new ResponseListPadelManager(true, "Not exits matchs in database, you can test add one match.", resultsMatchs);
+			responseListPadelManager = new ResponseListPadelManager(false, "Not exits matchs in database, you can test add one match.", resultsMatchs);
 		}else {
 			responseListPadelManager = new ResponseListPadelManager(true, "List of matchs got.", resultsMatchs);
 		}

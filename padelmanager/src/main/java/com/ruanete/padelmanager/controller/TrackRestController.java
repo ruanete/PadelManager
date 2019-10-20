@@ -34,7 +34,7 @@ public class TrackRestController {
 		resultsTracks = trackRepository.findAll();
 		
 		if(resultsTracks.isEmpty()) {
-			responseListPadelManager = new ResponseListPadelManager(true, "Not exits tracks in database, you can test add one track.", resultsTracks);
+			responseListPadelManager = new ResponseListPadelManager(false, "Not exits tracks in database, you can test add one track.", resultsTracks);
 		}else {
 			responseListPadelManager = new ResponseListPadelManager(true, "List of tracks got.", resultsTracks);
 		}

@@ -2,6 +2,8 @@ package com.ruanete.padelmanager.controller;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.List;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,9 +12,7 @@ import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.ruanete.padelmanager.domain.Match;
 import com.ruanete.padelmanager.domain.Player;
-import com.ruanete.padelmanager.repository.PlayerRepository;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -21,11 +21,11 @@ import com.ruanete.padelmanager.repository.PlayerRepository;
 public class PlayerRestControllerTests {
 
 	@Autowired
-	PlayerRepository playerRepository;
+	PlayerRestController playerController;
 	
 	@Test
 	public void getAllPlayers() {
-		assertEquals(4, playerRepository.findAll().size());
+		assertEquals(4, playerController.allPlayers().getList().size());
 	}
 	
 	@Test
@@ -34,7 +34,38 @@ public class PlayerRestControllerTests {
 		player.setEmail("test@gmail.com");
 		player.setName("Nombre Test");
 		
-		playerRepository.save(player);
-		assertEquals(5, playerRepository.findAll().size());
+		playerController.newPlayer(player);
+		assertEquals(5, playerController.allPlayers().getList().size());
+		
+		List<Player> list = (List<Player>) playerController.allPlayers().getList();
+		assertEquals(player.getEmail(), list.get(list.size()-1).getEmail());
+		assertEquals(player.getName(), list.get(list.size()-1).getName());
+	}
+	
+	@Test
+	public void updatePlayer() {
+		List<Player> list = (List<Player>) playerController.allPlayers().getList();
+		Player player = list.get(list.size()-1);
+		Player test = new Player();
+		
+		test.setEmail("prueba@correo.com");
+		test.setName("Nombre Prueba Test");
+		
+		playerController.updatePlayer(test, player.getId());
+		
+		list = (List<Player>) playerController.allPlayers().getList();
+		assertEquals(test.getEmail(), list.get(list.size()-1).getEmail());
+		assertEquals(test.getName(), list.get(list.size()-1).getName());
+	}
+	
+	@Test
+	public void deletePlayer() {
+		List<Player> list = (List<Player>) playerController.allPlayers().getList();
+		Player player = list.get(list.size()-1);
+		int tam = list.size();
+		
+		playerController.deletePlayer(player.getId());
+		
+		assertEquals(tam - 1, playerController.allPlayers().getList().size());
 	}
 }

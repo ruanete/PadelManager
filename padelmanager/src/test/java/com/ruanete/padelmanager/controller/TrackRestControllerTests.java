@@ -2,7 +2,7 @@ package com.ruanete.padelmanager.controller;
 
 import static org.junit.Assert.assertEquals;
 
-import java.util.Date;
+import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -12,9 +12,7 @@ import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.ruanete.padelmanager.domain.Reservation;
 import com.ruanete.padelmanager.domain.Track;
-import com.ruanete.padelmanager.repository.TrackRepository;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -23,11 +21,11 @@ import com.ruanete.padelmanager.repository.TrackRepository;
 public class TrackRestControllerTests {
 	
 	@Autowired
-	TrackRepository trackRepository;
+	TrackRestController trackController;
 	
 	@Test
 	public void getAllTracks() {
-		assertEquals(3, trackRepository.findAll().size());
+		assertEquals(3, trackController.allTracks().getList().size());
 	}
 	
 	@Test
@@ -36,7 +34,38 @@ public class TrackRestControllerTests {
 		track.setTrackNumber(4);
 		track.setWorking(false);
 		
-		trackRepository.save(track);
-		assertEquals(4, trackRepository.findAll().size());
+		trackController.newTrack(track);
+		assertEquals(4, trackController.allTracks().getList().size());
+		
+		List<Track> list = (List<Track>) trackController.allTracks().getList();
+		assertEquals(track.getTrackNumber(), list.get(list.size()-1).getTrackNumber());
+		assertEquals(track.getWorking(), list.get(list.size()-1).getWorking());
+	}
+	
+	@Test
+	public void updateTrack() {
+		List<Track> list = (List<Track>) trackController.allTracks().getList();
+		Track track = list.get(list.size()-1);
+		Track test = new Track();
+		
+		test.setTrackNumber(10);
+		test.setWorking(true);
+		
+		trackController.updateTrack(test, track.getId());
+		
+		list = (List<Track>) trackController.allTracks().getList();
+		assertEquals(test.getTrackNumber(), list.get(list.size()-1).getTrackNumber());
+		assertEquals(test.getWorking(), list.get(list.size()-1).getWorking());
+	}
+	
+	@Test
+	public void deleteTrack() {
+		List<Track> list = (List<Track>) trackController.allTracks().getList();
+		Track track = list.get(list.size()-1);
+		int tam = list.size();
+		
+		trackController.deleteTrack(track.getId());
+		
+		assertEquals(tam - 1, trackController.allTracks().getList().size());
 	}
 }
