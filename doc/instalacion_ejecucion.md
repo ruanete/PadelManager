@@ -11,13 +11,13 @@ Con este comando se compilará el proyecto y se ejecutarán los test. Una vez co
 java -jar padelmanager-0.0.1-SNAPSHOT.jar
 ```
 
-La mejor forma para ejecutar el proyecto en producción es hacer uso del siguiente comando, el cual, nos permitirá una vez ejecutado poder parar su ejecución con el comando análogo **stop** luego, para realizar la ejecución, realizamos:
+La mejor forma para ejecutar el proyecto es hacer uso del siguiente comando, el cual, nos permitirá una vez ejecutado poder parar su ejecución con el comando análogo **stop** luego, para realizar la ejecución, realizamos:
 
 ```
 mvn spring-boot:start &
 ```
 
-Y para finalizar la ejecución del microservicio una vez arrancado realizamos:
+Muy importante hacer uso de **&** para ejecutar el microservicio en segundo plano para así poder pararlo mediante la orden análoga. En la bibliografía adjunto la solucion a un fallo, el cual no era mas que la imposibilidad de parar la ejecución del proyecto mediante el siguiente comando, todo era debido a que tenía que añadir la configuración que un usuario adjunta y hacer uso del **&**. Hay que hacer uso del comando **start**, y no de **run**, debido a que si no maven ejecuta la aplicación en una hebra en la que no se permite la parada del mismo. Y para finalizar la ejecución del microservicio una vez arrancado realizamos:
 
 ```
 mvn spring-boot:stop
@@ -49,4 +49,5 @@ http://localhost:8080/api/reservation
 En la documentación de la REST API se pueden encontrar las diferentes peticiones posibles que se pueden realizar.
 
 #### Bibliografía
-[Spring Boot 2 RESTful API Documentation With Swagger 2 Tutorial](https://dzone.com/articles/spring-boot-2-restful-api-documentation-with-swagg)
+1. [Spring Boot 2 RESTful API Documentation With Swagger 2 Tutorial](https://dzone.com/articles/spring-boot-2-restful-api-documentation-with-swagg)
+2. [Spring Boot Maven plugin stop goal](https://stackoverflow.com/questions/45960578/spring-boot-maven-plugin-stop-goal)

@@ -15,12 +15,12 @@ En este proyecto hago uso de varios paquetes en Java y en dichos paquetes cuatro
 
 * Las clases que se encuentran en el paquete **controller** son aquellas clases que se encargan de gestionar las solicitudes HTTP entrantes del usuario y devuelve una respuesta adecuada. Existen cuatro controladores correspondientes a las cuatro tablas de la base de datos:
 
-  * **Player:** Actualmente existen en ella los métodos GET, POST y PUT para listar, añadir y editar un jugador. Será mejorado en siguientes versiones, añadiendo por ejemplo DELETE o PATCH para ciertas columnas de la tabla.
+  * **Player:** Actualmente existen en ella los métodos GET, POST, PUT y DELETE para listar, añadir, editar y borrar un jugador. Será mejorado en siguientes versiones, añadiendo por ejemplo PATCH para ciertas columnas de la tabla.
 
-  * **Match:** Actualmente existen en ella los métodos GET, POST y PUT para listar, añadir y editar un partido. Será mejorado en siguientes versiones, añadiendo por ejemplo DELETE o PATCH para ciertas columnas de la tabla.
+  * **Match:** Actualmente existen en ella los métodos GET, POST, PUT y DELETE para listar, añadir, editar y borrar un partido. Será mejorado en siguientes versiones, añadiendo por ejemplo PATCH para ciertas columnas de la tabla.
 
-  * **Track:** Actualmente existen en ella los métodos GET, POST y PUT para listar, añadir y editar una pista. Será mejorado en siguientes versiones, añadiendo por ejemplo DELETE o PATCH para ciertas columnas de la tabla.
+  * **Track:** Actualmente existen en ella los métodos GET, POST, PUT y DELETE para listar, añadir, editar y borrar una pista. Será mejorado en siguientes versiones, añadiendo por ejemplo PATCH para ciertas columnas de la tabla.
 
-  * **Reservation:** Actualmente existen en ella los métodos GET, POST y PUT para listar, añadir y editar una reserva. Será mejorado en siguientes versiones, añadiendo por ejemplo DELETE o PATCH para ciertas columnas de la tabla.
+  * **Reservation:** Actualmente existen en ella los métodos GET, POST, PUT y DELETE para listar, añadir, editar y borrar una reserva. Será mejorado en siguientes versiones, añadiendo por ejemplo PATCH para ciertas columnas de la tabla.
 
-Por ultimo, hay que tener en cuenta los paquetes en el que se encuentran los test del microservicio, estos se encuentran en la ruta **src/test/java** y dentro de esta ruta deberan aparecen los mismos paquetes que hemos tratado anteriormente, pero esta vez lo que realizan son los test, por ejemplo los test de las peticiones GET de la REST API.
+Por ultimo, hay que tener en cuenta los paquetes en el que se encuentran los test del microservicio, estos se encuentran en la ruta **src/test/java** y dentro de esta ruta deberan aparecen los mismos paquetes que hemos tratado anteriormente, pero esta vez lo que realizan son los test, por ejemplo los test de las peticiones GET, POST, PUT o DELETE de la REST API.
