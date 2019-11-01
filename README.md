@@ -43,5 +43,5 @@ Inicialmente la implementación de dicho microservicio será realizada en **Java
 
 ## [Herramienta de construcción](https://github.com/ruanete/PadelManager/tree/master/doc/herramienta_construccion.md)
 ```
-buildtool: Maven
+buildtool: pom.xml
 ```
