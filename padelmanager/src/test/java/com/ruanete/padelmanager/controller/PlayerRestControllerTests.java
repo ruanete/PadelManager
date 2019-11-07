@@ -13,7 +13,9 @@ import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import com.ruanete.padelmanager.domain.Match;
 import com.ruanete.padelmanager.domain.Player;
+import com.ruanete.padelmanager.domain.Reservation;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -21,6 +23,11 @@ import com.ruanete.padelmanager.domain.Player;
 @Sql("/test-mysql.sql")
 @ActiveProfiles("test")
 public class PlayerRestControllerTests {
+	@Autowired
+	MatchRestController matchController;
+	
+	@Autowired
+	ReservationRestController reservationController;
 
 	@Autowired
 	PlayerRestController playerController;
@@ -62,6 +69,16 @@ public class PlayerRestControllerTests {
 	
 	@Test
 	public void deletePlayer() {
+		List<Reservation> listReservation = (List<Reservation>) reservationController.allReservations().getList();
+		
+		for(Reservation reservation:listReservation)
+			reservationController.deleteReservation(reservation.getId());
+		
+		List<Match> listMatches = (List<Match>) matchController.allMatches().getList();
+		
+		for(Match match:listMatches)
+			matchController.deleteMatch(match.getId());
+		
 		List<Player> list = (List<Player>) playerController.allPlayers().getList();
 		Player player = list.get(list.size()-1);
 		int tam = list.size();
