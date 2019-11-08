@@ -41,6 +41,7 @@ Inicialmente la implementación de dicho microservicio será realizada en **Java
   * [Configuración de GitHub Actions](https://github.com/ruanete/PadelManager/tree/master/doc/github_actions.md)
 * [Tests REST API](https://github.com/ruanete/PadelManager/tree/master/doc/test.md)
 * [Herramienta de construcción](https://github.com/ruanete/PadelManager/tree/master/doc/herramienta_construccion.md)
+* [Configuración y despliegue en PaaS. Heroku.](https://github.com/ruanete/PadelManager/tree/master/doc/configuracion_despliegue_heroku.md)
 
 ## [Herramienta de construcción](https://github.com/ruanete/PadelManager/tree/master/doc/herramienta_construccion.md)
 ```
