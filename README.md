@@ -50,5 +50,5 @@ buildtool: pom.xml
 
 ## [Despliegue en Heroku](https://github.com/ruanete/PadelManager/tree/master/doc/configuracion_despliegue_heroku.md)
 ```
-Despliegue: https://padelmanager.herokuapp.com/status
+Despliegue: https://padelmanager.herokuapp.com
 ```
