@@ -1,0 +1,9 @@
+version: '2'
+services:
+  padelmanager:
+    image: ruanete/padelmanager
+    container_name: padelmanager
+    environment:
+      - DECRYPT_KEY=$DECRYPT_KEY
+    ports:
+      - '8080:8080'
