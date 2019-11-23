@@ -30,6 +30,8 @@ Inicialmente la implementación de dicho microservicio será realizada en **Java
 * [Travis-CI](https://travis-ci.org/): Servicio de integración continua. Usado debido a la integración directa que tiene con GitHub y que es usado directamente desde la nube, además es fácil de configurar y compatible con la mayoría de lenguajes.
 * [GitHub Actions](https://github.com/features/actions): Servicio de integración continua. Al ser un servicio propio de GitHub está totalmente integrado con este y las facilidades que con esto conlleva, muy parecido de configurar a Travis CI.
 * [Heroku](https://www.heroku.com/): Servicio de computación en la Nube (PaaS).
+* [Google Cloud](https://cloud.google.com/): Servicio de infraestructura en la nube (IaaS).
+* [Docker](https://www.docker.com/): Contenedores que facilita el despliegue del proyecto.
 
 ## [Documentación](https://github.com/ruanete/PadelManager/blob/master/doc/README.md)
 * [Instalación, ejecución y uso en local](https://github.com/ruanete/PadelManager/tree/master/doc/instalacion_ejecucion.md)
