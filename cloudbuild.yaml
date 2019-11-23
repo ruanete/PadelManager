@@ -7,7 +7,7 @@ steps:
   args: ['push', 'gcr.io/$PROJECT_ID/padelmanager']
   # deploy container image to Cloud Run
 - name: 'gcr.io/cloud-builders/gcloud'
-  args: ['beta', 'run', 'deploy', 'padelmanager', '--image', 'gcr.io/$PROJECT_ID/padelmanager:${SHORT_SHA}', '--region', 'us-central1', '--allow-unauthenticated']
+  args: ['beta', 'run', 'deploy', 'padelmanager', '--image', 'gcr.io/$PROJECT_ID/padelmanager:${SHORT_SHA}', '--region', 'us-central1', '--allow-unauthenticated', '--platform', 'managed', '--memory', '1Gi', '--max-instances', '1']
   env:
   - 'PORT=8080'
 images:
