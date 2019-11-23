@@ -2,4 +2,4 @@ build:
   docker:
     web: Dockerfile
 run:
-  web: java -Dspring.profiles.active=prod -Dspring-boot.run.profiles=prod -Djasypt.encryptor.password=$DECRYPT_KEY -jar target/*.jar
+  web: java -Dserver.port=$PORT -Dspring.profiles.active=prod -Dspring-boot.run.profiles=prod -Djasypt.encryptor.password=$DECRYPT_KEY -jar target/padelmanager-0.0.1-SNAPSHOT.jar
