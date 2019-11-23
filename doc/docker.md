@@ -58,3 +58,8 @@ Para poder hacer uso de ella directamente a través de un repositorio en [Docker
 1. Creación de una cuenta en [Dockerhub](https://hub.docker.com/) y creación de un repositorio, para ello nos vamos a nuestro perfil creamos un repositorio, le ponemos nombre, descripción, lo conectamos a nuestra cuenta de Github y elegimos el repositorio a usar.
 2. Elegimos el tipo de origen en nuestro caso una rama o "Branch", en **Source** elegimos master, como docker tag "latest", en "Dockerfile location" ponemos Dockerfile, en "Build Context" elegimos la ruta "/" que es la del repositorio, activamos "Autobuild" y "Build caching".
 3. Guardamos y con esto ya tendriamos **Dockerhub** configurado para que en cuanto se realice push en la rama Master del repositorio de Github se autogenera la imagen y se tenga automaticamente actualizada en este repositorio.
+
+#### Bibliografía
+1. [How to dockerize maven project? and how many ways to accomplish it?](https://stackoverflow.com/questions/27767264/how-to-dockerize-maven-project-and-how-many-ways-to-accomplish-it)
+2. [Docker reference](https://docs.docker.com/engine/reference/builder/#arg)
+3. [Set up Automated Builds using GitHub and Docker Hub](https://medium.com/@_oleksii_/set-up-automated-builds-using-github-and-docker-hub-12c3e0f18eba)
