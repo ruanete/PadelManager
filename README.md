@@ -56,3 +56,13 @@ buildtool: pom.xml
 ```
 Despliegue: https://padelmanager.herokuapp.com
 ```
+
+## Repositorio DockerHub
+```
+Repositorio: https://hub.docker.com/repository/docker/ruanete/padelmanager
+```
+
+## [Despliegue contenedor en  Google Cloud](https://github.com/ruanete/PadelManager/tree/master/doc/docker_to_googlecloud.md)
+```
+Contenedor: https://padelmanager-yt2vhm5fza-uc.a.run.app/
+```
