@@ -1,0 +1,2 @@
+- name: Instalación de Maven
+  apt: name=maven state=latest

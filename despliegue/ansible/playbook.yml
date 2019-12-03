@@ -1,0 +1,9 @@
+- hosts: uc
+  become: true
+  gather_facts: no
+  roles:
+     - common_os_setup
+     - dependencies
+     - java11
+     - maven
+     - padelmanager

@@ -1,0 +1,8 @@
+- name: Asegurar de que la caché de APT esté actualizada
+  apt: update_cache=yes
+
+- name: Asegurar que los paquetes de APT se actualicen
+  apt: upgrade=yes
+
+- name: Copiar clave publica del host a la máquina
+  authorized_key: user=vagrant key="{{  lookup('file', lookup('env','HOME') + '/.ssh/id_rsa.pub') }}"

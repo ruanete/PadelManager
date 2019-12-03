@@ -1,0 +1,8 @@
+- name: Clonar repositorio del proyecto PadelManager
+  command: git clone {{github_repository.download_url}}
+
+- name: Ejecución del servicio PadelManager
+  become: yes
+  shell: mvn spring-boot:start &
+  args:
+    chdir: /home/vagrant/PadelManager/padelmanager

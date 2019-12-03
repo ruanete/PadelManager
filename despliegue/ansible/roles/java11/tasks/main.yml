@@ -1,0 +1,14 @@
+- name: Install add-apt-repostory
+  apt: name=software-properties-common state=latest
+
+- name: Añadir repositorio de OpenJDK a los fuentes
+  apt_repository: repo='ppa:openjdk-r/ppa'
+  tags: java
+
+- name: Actualización de la cache de paquetes APT
+  apt: update_cache=yes
+  tags: java
+
+- name: Instalación de Java 11
+  apt: name=openjdk-11-jdk state=latest install_recommends=yes
+  tags: java

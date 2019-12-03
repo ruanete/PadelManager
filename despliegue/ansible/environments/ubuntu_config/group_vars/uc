@@ -1,0 +1,8 @@
+maven:
+  download_url: http://ftp.cixug.es/apache/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz
+  file: apache-maven-3.6.3-bin.tar.gz
+  home: /opt/apache-maven-3.6.3
+
+github_repository:
+  download_url: https://github.com/ruanete/PadelManager.git
+  home: /home/vagrant/PadelManager/padelmanager
