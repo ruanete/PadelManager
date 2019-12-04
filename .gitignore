@@ -108,4 +108,13 @@ buildNumber.properties
 .mvn/wrapper/maven-wrapper.jar
 .flattened-pom.xml
 
+# Vagrant stuff
+acceptance_config.yml
+boxes/*
+despliegue/.vagrant
+/website/.vagrant
+/website/build
+/vagrant-spec.config.rb
+test/vagrant-spec/.vagrant/
+
 # End of https://www.gitignore.io/api/java,maven,eclipse
