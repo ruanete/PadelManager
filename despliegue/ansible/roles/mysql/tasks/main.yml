@@ -1,0 +1,17 @@
+- name: Instalación de MySQL
+  apt:
+    name: ['mysql-server','mysql-client','python-mysqldb']
+    state: latest
+
+- name: Creación de la base de datos de PadelManager
+  mysql_db:
+    name: '{{ mysql.db_name }}'
+    state: present
+
+- name: Creación de usuario para la base de datos
+  mysql_user:
+    name: '{{ mysql.db_user }}'
+    password: '{{ mysql.db_pass }}'
+    encrypted: yes
+    priv: '*.*:ALL,GRANT'
+    state: present

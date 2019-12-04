@@ -6,3 +6,8 @@ maven:
 github_repository:
   download_url: https://github.com/ruanete/PadelManager.git
   home: /home/vagrant/PadelManager/padelmanager
+
+mysql:
+  db_name: PadelManager
+  db_user: root
+  db_pass: '*81F5E21E35407D884A6CD4A731AEBFB6AF209E1B'

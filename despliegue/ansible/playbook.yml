@@ -6,4 +6,5 @@
      - dependencies
      - java11
      - maven
+     - mysql
      - padelmanager
