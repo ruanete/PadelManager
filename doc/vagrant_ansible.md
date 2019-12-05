@@ -262,6 +262,17 @@ vagrant up
 
 Con esto se levantará la máquina y Ansible realizará todo el provisionado de la misma, al final podremos acceder a la REST API tal y como haciamos antes haciendo peticiones a localhost en el puerto 8080.
 
+### Creación de Vagrant Box y subida a Vagrant Cloud
+Para la generación de un Vagrant Box tan solo debemos realizar el siguiente comando una vez hayamos arrancado la máquina y siempre estando en el directorio **despliegue**:
+```
+vagrant package --output padelmanager.box
+```
+Esto generará un fichero .box que es el que vamos a subir a Vagrant Cloud a un repositorio público. Para subir dicho box a [Vagrant Cloud](https://app.vagrantup.com/) nos creamos una cuenta, luego generamos una nueva box en el botón correspondiente, añadimos un nombre para el box, lo siguiente que ponemos es la versión del box y una descripción. Con esto se genera un repositorio donde subiremos el box, para ello pulsamos en "new box provider" en provider añado "Virtual Box" en mi caso y continuamos para subir la imagen. Finalmente elegimos la box y la subimos y con esto ya tendriamos el box en Vagrant Cloud y ahora podrá ser usado directamente con el nombre que aparece arriba, en mi caso "ruanete/PadelManager".
+
+```
+Vagrant Cloud: https://app.vagrantup.com/ruanete/boxes/PadelManager
+```
+
 #### Bibliografía
 1. [Minimal Ubuntu: la imagen más pequeña está lista para automatizar la nube](https://www.muylinux.com/2018/07/10/minimal-ubuntu-imagen-pequena-automatizar-nube/)
 2. [Creación de entornos de integración con Ansible y Vagrant](https://www.adictosaltrabajo.com/2015/09/04/creacion-de-entornos-de-integracion-con-ansible-y-vagrant/)
@@ -278,3 +289,4 @@ Con esto se levantará la máquina y Ansible realizará todo el provisionado de 
 13. [Why can't I copy SSH keys to Vagrant VM?](https://stackoverflow.com/questions/34756702/why-cant-i-copy-ssh-keys-to-vagrant-vm)
 14. [Setting up MySQL root user with Ansible and Vagrant](http://www.inanzzz.com/index.php/post/xk3y/setting-up-mysql-root-user-with-ansible-and-vagrant)
 15. [¿QUÉ ES EL COMANDO NOHUP Y CÓMO USARLO?](https://maslinux.es/que-es-el-comando-nohup-y-como-usarlo/)
+16. [How to Create a Vagrant Base Box from an Existing One](https://scotch.io/tutorials/how-to-create-a-vagrant-base-box-from-an-existing-one)
