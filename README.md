@@ -32,6 +32,8 @@ Inicialmente la implementación de dicho microservicio será realizada en **Java
 * [Heroku](https://www.heroku.com/): Servicio de computación en la Nube (PaaS).
 * [Google Cloud](https://cloud.google.com/): Servicio de infraestructura en la nube (IaaS).
 * [Docker](https://www.docker.com/): Contenedores que facilita el despliegue del proyecto.
+* [Vagrant](https://www.vagrantup.com/): Herramienta para la creación y configuración de entornos de desarrollo virtualizados.
+* [Ansible](https://www.ansible.com/): Herramienta para el provisionamiento de sistemas virtualizados.
 
 ## [Documentación](https://github.com/ruanete/PadelManager/blob/master/doc/README.md)
 * [Instalación, ejecución y uso en local](https://github.com/ruanete/PadelManager/tree/master/doc/instalacion_ejecucion.md)
