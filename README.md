@@ -69,3 +69,8 @@ Repositorio: https://hub.docker.com/r/ruanete/padelmanager
 ```
 Contenedor: https://padelmanager-yt2vhm5fza-uc.a.run.app/
 ```
+
+## [Configuración Vagrant y Ansible. Despliegue en local. Subida de box a Vagrant Cloud.](https://github.com/ruanete/PadelManager/tree/master/doc/vagrant_ansible.md)
+```
+provision: despliegue/ansible/playbook.yml
+```
