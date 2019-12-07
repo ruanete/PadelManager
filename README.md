@@ -74,3 +74,8 @@ Contenedor: https://padelmanager-yt2vhm5fza-uc.a.run.app/
 ```
 provision: despliegue/ansible/playbook.yml
 ```
+
+## Box de Vagrant PadelManager
+```
+Vagrant Cloud: https://app.vagrantup.com/ruanete/boxes/PadelManager
+```
